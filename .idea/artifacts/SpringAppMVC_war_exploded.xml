@@ -1,6 +1,6 @@
 <component name="ArtifactManager">
   <artifact type="exploded-war" name="SpringAppMVC:war exploded">
-    <output-path>$PROJECT_DIR$/target/ssm</output-path>
+    <output-path>$PROJECT_DIR$/target/springmybatis</output-path>
     <root id="root">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
@@ -36,10 +36,21 @@
           <element id="library" level="project" name="Maven: org.springframework:spring-test:4.3.5.RELEASE" />
           <element id="library" level="project" name="Maven: jstl:jstl:1.2" />
           <element id="library" level="project" name="Maven: com.alibaba:druid:1.1.6" />
+          <element id="library" level="project" name="Maven: org.apache.poi:poi:3.8" />
+          <element id="library" level="project" name="Maven: commons-codec:commons-codec:1.5" />
+          <element id="library" level="project" name="Maven: org.apache.poi:poi-scratchpad:3.8" />
+          <element id="library" level="project" name="Maven: org.apache.poi:poi-ooxml-schemas:3.8" />
+          <element id="library" level="project" name="Maven: org.apache.xmlbeans:xmlbeans:2.3.0" />
+          <element id="library" level="project" name="Maven: stax:stax-api:1.0.1" />
+          <element id="library" level="project" name="Maven: org.apache.poi:poi-ooxml:3.8" />
+          <element id="library" level="project" name="Maven: dom4j:dom4j:1.6.1" />
+          <element id="library" level="project" name="Maven: xml-apis:xml-apis:1.0.b2" />
+          <element id="library" level="project" name="Maven: joda-time:joda-time:2.9.9" />
+          <element id="library" level="project" name="Maven: commons-lang:commons-lang:2.6" />
         </element>
       </element>
       <element id="directory" name="META-INF">
-        <element id="file-copy" path="$PROJECT_DIR$/target/ssm/META-INF/MANIFEST.MF" />
+        <element id="file-copy" path="$PROJECT_DIR$/target/springmybatis/META-INF/MANIFEST.MF" />
       </element>
       <element id="javaee-facet-resources" facet="SpringAppMVC/web/Web" />
     </root>
