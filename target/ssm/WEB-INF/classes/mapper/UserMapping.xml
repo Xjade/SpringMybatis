@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper  namespace="com.ssi.mvc.domains.user.entity">
+    <resultMap id="UserMapper" type="com.ssi.mvc.domains.user.entity.User">
+        <id column="id" property="id" jdbcType="VARCHAR"/>
+        <result column="age" property="age" jdbcType="NUMERIC"/>
+        <result column="username" property="name" jdbcType="VARCHAR"/>
+    </resultMap>
+
+
+    <!--查询所有数据-->
+    <select id="selectAllUsers" resultMap="UserMapper">
+        SELECT * FROM USER;
+    </select>
+
+    <!-- 根据ID查询数据-->
+    <select id="selectUserById" parameterType="String" resultMap="UserMapper">
+        SELECT * FROM USER WHERE id=#{id};
+    </select>
+
+    <!-- 新增用户-->
+    <insert id="insertUser" parameterType="com.ssi.mvc.domains.user.entity.User">
+        INSERT INTO USER VALUES (#{id},#{name},#{age});
+    </insert>
+
+    <!--根据ID修改用户信息-->
+    <update id="updateUser" parameterType="com.ssi.mvc.domains.user.entity.User">
+        UPDATE USER SET username=#{name},age=#{age} where id=#{id};
+    </update>
+
+    <!--删除用户-->
+    <delete id="deleteUser" parameterType="String">
+        DELETE FROM USER WHERE id=#{id};
+    </delete>
+</mapper>

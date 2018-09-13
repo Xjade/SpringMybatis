@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper  namespace="com.springapp.mvc.pojo">
+    <resultMap id="UserMapper" type="com.springapp.mvc.pojo.User">
+        <result column="age" property="age" jdbcType="INT"/>
+        <result column="name" property="name" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <select id="selectAllUsers" resultMap="UserMapper">
+        SELECT * FROM USER
+    </select>
+</mapper>
