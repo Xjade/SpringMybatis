@@ -57,8 +57,7 @@ public class UserServiceImpl implements UserService {
         int deleteCount = 0;
         try {
             for (String id : ids) {
-                System.out.println(id+"---------");
-                deleteCount = userDaoMybatis.deleteUser(id);
+                deleteCount += userDaoMybatis.deleteUser(id);
                 if (deleteCount == 0) {
                     throw new RuntimeException();
                 }

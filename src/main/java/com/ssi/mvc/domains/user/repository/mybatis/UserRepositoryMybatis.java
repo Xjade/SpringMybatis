@@ -20,6 +20,7 @@ import static com.ssi.mvc.domains.user.UserRepositoryMybatisStatement.*;
 
 import java.util.List;
 
+
 @Repository
 public class UserRepositoryMybatis extends SqlSessionDaoSupport implements UserRepository{
 
@@ -40,7 +41,7 @@ public class UserRepositoryMybatis extends SqlSessionDaoSupport implements UserR
     //    查询全部用户
     @Override
     public List<User> selectAllUsers() {
-        return this.getSqlSession().selectList("com.ssi.mvc.domains.user.entity.selectAllUsers");
+        return this.getSqlSession().selectList(STM_GET_ALL_USER);
     }
 
     //    根据ID查找用户

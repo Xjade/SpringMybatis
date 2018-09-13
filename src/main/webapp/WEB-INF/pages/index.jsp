@@ -21,9 +21,8 @@
 <div id="userdiv">
     <div>
         <input type="submit" value="查询"
-               onclick="searchUser(document.getElementById('UserId').value,'UserTable','updateDiv','inputId','inputName','inputAge')"><input
-            type="text"
-            id="UserId"></br>
+               onclick="searchUser(document.getElementById('UserId').value,'UserTable','updateDiv','inputId','inputName','inputAge')">
+        <input type="text" id="UserId"></br>
         <button onclick="insertShow('insertDiv')">添加用户</button>
         <button onclick="tabledeleteuser()">删除</button>
         <button onclick="tableupdateUser('updateDiv','inputId','inputName','inputAge')">修改</button>

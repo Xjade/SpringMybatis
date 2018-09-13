@@ -17,6 +17,14 @@
         <mybatis.version>3.4.1</mybatis.version>
         <!-- jstl版本号 -->
         <jstl.version>1.2</jstl.version>
+        <!--导出excel-->
+        <poi-version>3.8</poi-version>
+        <!--joda-time-->
+        <joda-time-version>2.9.9</joda-time-version>
+
+        <!--commons-long-->
+        <commons.lang.version>2.6</commons.lang.version>
+
     </properties>
 
     <dependencies>
@@ -126,6 +134,8 @@
             <version>${jstl.version}</version>
         </dependency>
 
+
+        <!-- 数据库连接池-->
         <!-- https://mvnrepository.com/artifact/com.alibaba/druid -->
         <dependency>
             <groupId>com.alibaba</groupId>
@@ -133,11 +143,48 @@
             <version>1.1.6</version>
         </dependency>
 
+        <!--导出Excel-->
+        <!-- https://mvnrepository.com/artifact/org.apache.poi/poi -->
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi</artifactId>
+            <version>${poi-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-scratchpad</artifactId>
+            <version>${poi-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml-schemas</artifactId>
+            <version>${poi-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml</artifactId>
+            <version>${poi-version}</version>
+        </dependency>
+
+
+        <!--joda-time-->
+        <dependency>
+            <groupId>joda-time</groupId>
+            <artifactId>joda-time</artifactId>
+            <version>${joda-time-version}</version>
+        </dependency>
+
+        <!--commons-lang-->
+        <dependency>
+            <groupId>commons-lang</groupId>
+            <artifactId>commons-lang</artifactId>
+            <version>${commons.lang.version}</version>
+        </dependency>
 
     </dependencies>
 
     <build>
-        <finalName>ssm</finalName>
+        <finalName>springmybatis</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

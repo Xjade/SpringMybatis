@@ -24,6 +24,7 @@ public class UserController {
 //    显示初始页面的查询
     @RequestMapping(value = "Index")
     public ModelAndView index(){
+
         List<User> users=new ArrayList<User>();
         users= userService.getAllUsers();
         return new ModelAndView("index","userList",users);
@@ -61,6 +62,7 @@ public class UserController {
     @RequestMapping("Update")
     @ResponseBody
     public ModelAndView updateUser(User user){
+
         System.out.print(user.toString());
         try {
             userService.update(user);

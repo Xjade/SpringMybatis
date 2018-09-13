@@ -362,7 +362,8 @@
                  e：Ext.EventObject raw事件对象
                  eOpts：Object将options对象传递给Ext.util.Observable.addListener。*/
                 "itemdblclick": function(grid, record, item, index, e) {
-                    editRow(record.data["updateUserId"], record.data["updateUserName"], record.data["updateUserAge"]);
+//                    这边的userId userName userAge 是Panel里面的columns的里面的dataindex
+                    editRow(record.data["userId"], record.data["userName"], record.data["userAge"]);
                 }
             }
         });
@@ -412,7 +413,6 @@
 
 //    根据id查询
     function doQueryById(userId){
-        alert(userId);
 //        为查询添加参数
         var new_params={"userId":userId};
         Ext.apply(gridStore.proxy.extraParams, new_params);
@@ -461,7 +461,7 @@
         }else{
             var ids = "";
             for(var i=0;i<record.length; i++){
-                ids += record[i].get("userId")
+                ids += record[i].get("userId");
                 if(i<record.length-1){
                     ids = ids +","
                 }

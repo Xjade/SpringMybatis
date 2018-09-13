@@ -43,12 +43,14 @@ public class ExtjsController {
         return new ModelAndView("extjsTwo");
     }
 
-    @RequestMapping("/extjsuser")
+
+
+    @RequestMapping(FWD_SYSTEM_EXT_USER)
     public ModelAndView extjsuser(){
-        return new ModelAndView("extuser");
+        return new ModelAndView(FWD_SYSTEM_EXT_USER);
     }
 
-    @RequestMapping(value = "/extid", method = RequestMethod.GET)
+    @RequestMapping(value = FWD_SYSTEM_EXT_ID, method = RequestMethod.GET)
     @ResponseBody
     public Map<String, Object> searchById(final HttpServletRequest request, final HttpServletResponse response) {
         final Map<String, Object> map = Maps.newHashMap();
@@ -65,7 +67,7 @@ public class ExtjsController {
     }
 
     //    插入数据
-    @RequestMapping(value = "/extinsert", method = RequestMethod.GET)
+    @RequestMapping(value = FWD_SYSTEM_EXT_INSERT, method = RequestMethod.GET)
     @ResponseBody
     public Map<String,Object> insertUser(final HttpServletRequest request, final HttpServletResponse response) {
         User user=new User();
@@ -95,7 +97,7 @@ public class ExtjsController {
     }
 
     //    根据id删除用户
-    @RequestMapping(value = "/extdelete", method = RequestMethod.GET)
+    @RequestMapping(value = FWD_SYSTEM_EXT_DELETE, method = RequestMethod.GET)
     @ResponseBody
     public Map<String, Object> deleteById(final HttpServletRequest request, final HttpServletResponse response) {
 //        获取删除的id的集合。
@@ -119,7 +121,7 @@ public class ExtjsController {
     }
 
     //    根据id修改用户信息
-    @RequestMapping(value = "/extupdate", method = RequestMethod.GET)
+    @RequestMapping(value =FWD_SYSTEM_EXT_UPDATE, method = RequestMethod.GET)
     @ResponseBody
     public Map<String,Object> updateUser(final HttpServletRequest request, final HttpServletResponse response) {
         User user=new User();
@@ -143,14 +145,5 @@ public class ExtjsController {
             map.put("updateflag","faile");
             return map;
         }
-    }
-
-
-    @RequestMapping("exttest")
-    @ResponseBody
-    public Map<String,Object> testExt(){
-        Map<String,Object> map=Maps.newHashMap();
-        map.put("testFlag","success");
-        return map;
     }
 }

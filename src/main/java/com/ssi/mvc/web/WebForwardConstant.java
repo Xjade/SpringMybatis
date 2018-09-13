@@ -17,6 +17,11 @@ public final class WebForwardConstant {
     public static final String FWD_SYSTEM_INSERT="/insert";
     public static final String FWD_SYSTEM_UPDATE="/update";
     public static final String FWD_SYSTEM_DELETE="/delete";
+    public static final String FWD_SYSTEM_EXT_INSERT="/extinsert";
+    public static final String FWD_SYSTEM_EXT_DELETE="/extdelete";
+    public static final String FWD_SYSTEM_EXT_UPDATE="/extupdate";
+    public static final String FWD_SYSTEM_EXT_ID="/extid";
+    public static final String FWD_SYSTEM_EXT_USER="/extuser";
 
 
 

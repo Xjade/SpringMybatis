@@ -13,6 +13,7 @@ import com.google.common.collect.Maps;
 import com.ssi.mvc.domains.user.UserService;
 import com.ssi.mvc.domains.user.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -30,6 +31,15 @@ import static com.ssi.mvc.web.WebForwardConstant.*;
 public class UserController {
     @Autowired
     private UserService userService;
+
+    @Value("${abc.name}")
+    private String testName;
+
+    @RequestMapping(value = "/hello")
+    public ModelAndView hello() {
+        System.out.println(testName);
+        return new ModelAndView("hello");
+    }
 
     //    显示初始页面的查询
     @RequestMapping(value = FWD_SYSTEM_HOME)

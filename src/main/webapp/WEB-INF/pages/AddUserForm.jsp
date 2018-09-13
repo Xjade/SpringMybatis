@@ -35,9 +35,6 @@
 
 <script type="text/javascript">
 
-
-
-
     function CloseWindow() {
         window.close();
     }
