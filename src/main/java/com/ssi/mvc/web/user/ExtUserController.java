@@ -10,7 +10,7 @@ package com.ssi.mvc.web.user;
 import com.google.common.collect.Maps;
 
 
-import com.ssi.mvc.domains.user.UserService;
+import com.ssi.mvc.domains.user.ExtUserService;
 import com.ssi.mvc.domains.user.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -22,15 +22,14 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import static com.ssi.mvc.web.WebForwardConstant.*;
 
 @Controller
-public class UserController {
+public class ExtUserController {
     @Autowired
-    private UserService userService;
+    private ExtUserService userService;
 
     @Value("${abc.name}")
     private String testName;

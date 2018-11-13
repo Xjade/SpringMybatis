@@ -7,7 +7,7 @@ package com.ssi.mvc.domains.user.impl;
  * Time:14:16
 */
 
-import com.ssi.mvc.domains.user.UserService;
+import com.ssi.mvc.domains.user.ExtUserService;
 import com.ssi.mvc.domains.user.entity.User;
 import com.ssi.mvc.domains.user.repository.mybatis.UserRepositoryMybatis;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +18,7 @@ import java.util.List;
 
 @Transactional
 @Service
-public class UserServiceImpl implements UserService {
+public class ExtUserServiceImpl implements ExtUserService {
 
     @Autowired
     private UserRepositoryMybatis userDaoMybatis;

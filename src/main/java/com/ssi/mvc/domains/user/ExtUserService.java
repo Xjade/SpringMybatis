@@ -13,7 +13,7 @@ import com.ssi.mvc.domains.user.entity.User;
 
 import java.util.List;
 
-public interface UserService {
+public interface ExtUserService {
 
     /**
      *

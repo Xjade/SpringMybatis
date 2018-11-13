@@ -11,19 +11,6 @@
     <import resource="config/spring/spring.xml"/>
     <import resource="config/springmybatis/springmybatis.xml"/>
 
-
-    <!--@value注解获取值配置-->
-    <bean id="testProperty"
-          class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-        <property name="locations">
-            <array>
-                <value>classpath*:/resources/receipts.properties</value>
-            </array>
-        </property>
-    </bean>
-    <!--@value注解获取值配置-->
-    <context:property-placeholder location="classpath*:/resources/receipts.properties" ignore-unresolvable="true"/>
-
     <!--配置定时任务-->
     <task:annotation-driven scheduler="qbScheduler" mode="proxy"/>
     <task:scheduler id="qbScheduler" />
@@ -31,5 +18,5 @@
     <context:component-scan base-package="com.task"/>
     <!--因为会启动两次 所以单独把定时器拿出去然后这边的关掉开启另一边-->
     <!--开启任务-->
-    <!--<task:annotation-driven/>-->
+    <task:annotation-driven/>
 </beans>

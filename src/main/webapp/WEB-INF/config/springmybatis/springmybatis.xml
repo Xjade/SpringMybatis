@@ -9,9 +9,7 @@
        http://www.springframework.org/schema/context
        http://www.springframework.org/schema/context/spring-context.xsd
        http://www.springframework.org/schema/tx
-       http://www.springframework.org/schema/tx/spring-tx.xsd
-       http://www.springframework.org/schema/aop
-       http://www.springframework.org/schema/aop/spring-aop.xsd">
+       http://www.springframework.org/schema/tx/spring-tx.xsd">
 
     <!-- 扫描service包下所有使用注解的类型 -->
     <!--<context:component-scan base-package="com.springapp.mvc.service"/>-->
@@ -21,15 +19,18 @@
     <!-- 扫描service包下所有使用注解的类型 -->
     <context:component-scan base-package="com.ssi.mvc.domains.user.impl"/>
 
-    <!--&lt;!&ndash; 扫描mybatis数据库操作的类&ndash;&gt;-->
-    <!--<context:component-scan base-package="com.springapp.mvc.dao.impl"/>-->
-    <!--&lt;!&ndash; 扫描service包下所有使用注解的类型 &ndash;&gt;-->
-    <!--<context:component-scan base-package="com.springapp.mvc.service.impl"/>-->
+
+    <!-- 扫描mybatis数据库操作的类-->
+    <context:component-scan base-package="com.springapp.mvc.dao.impl"/>
+    <!-- 扫描service包下所有使用注解的类型 -->
+    <context:component-scan base-package="com.springapp.mvc.service.impl"/>
 
 
 
     <!-- 配置数据库相关参数properties的属性：${url} -->
-    <context:property-placeholder location="WEB-INF/config/jdbc.properties"/>
+    <context:property-placeholder location="WEB-INF/config/jdbc.properties" ignore-unresolvable="true"/>
+
+
 
     <!-- 数据库连接池 -->
     <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
