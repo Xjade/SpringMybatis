@@ -43,4 +43,18 @@
         </property>
     </bean>
 
+
+    <mvc:interceptors>
+        <!-- 使用bean定义一个Interceptor，直接定义在mvc:interceptors根下面的Interceptor将拦截所有的请求 -->
+        <!--<mvc:interceptor>-->
+        <!--<mvc:mapping path="/"/>-->
+        <!--&lt;!&ndash; 需排除拦截的地址 &ndash;&gt;-->
+        <!--&lt;!&ndash;<mvc:exclude-mapping path="/" />&ndash;&gt;-->
+        <!--&lt;!&ndash;<mvc:exclude-mapping path="/test" />&ndash;&gt;-->
+        <!--&lt;!&ndash; 定义在mvc:interceptor下面的表示是对特定的请求才进行拦截的 &ndash;&gt;-->
+        <!--<bean class="com.aisino.util.ParseURLFilter"/>-->
+        <!--</mvc:interceptor>-->
+        <bean class="com.Utils.ParseURLFilter"/>
+    </mvc:interceptors>
+
 </beans>
