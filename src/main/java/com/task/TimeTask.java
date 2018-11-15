@@ -18,9 +18,9 @@ import java.util.Date;
 @Component
 public class TimeTask {
 
-    @Scheduled(cron = "0/5 * * * * ?")
-    public void test(){
-        Date date=new Date();
-        System.out.println(date.getTime());
-    }
+//    @Scheduled(cron = "0/5 * * * * ?")
+//    public void test(){
+//        Date date=new Date();
+//        System.out.println(date.getTime());
+//    }
 }

@@ -15,7 +15,8 @@
     <!--@value注解获取值配置-->
     <bean id="testProperty"
           class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-        <property name="locations">
+        <!--<property name="ignoreUnresolvablePlaceholders" value="true"/>-->
+         <property name="locations">
             <array>
                 <value>classpath*:/resources/receipts.properties</value>
             </array>
