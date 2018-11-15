@@ -37,6 +37,18 @@ public class UrlRewriteFilter implements Filter {
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         filterChain.doFilter(servletRequest,servletResponse);
+
+
+//        HttpServletRequest request = (HttpServletRequest) servletRequest;
+//        String requestURI = request.getRequestURI();
+//        if (true){
+//            filterChain.doFilter(servletRequest,servletResponse);
+//            return;
+//        }
+//        if (false){
+//            String newURI = ""+requestURI;
+//            servletRequest.getRequestDispatcher(newURI).forward(servletRequest, servletResponse);
+//        }
     }
 
     @Override
