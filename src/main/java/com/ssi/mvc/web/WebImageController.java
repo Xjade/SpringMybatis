@@ -32,7 +32,7 @@ public class WebImageController {
     public String showImage(){
         String strImg = getImageStr("D:/two.jpg");
 //        generateImage(strImg, "D:/three.jpg");
-        return strImg;
+            return strImg;
     }
 
 

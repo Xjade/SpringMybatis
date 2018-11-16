@@ -18,7 +18,7 @@
     <%--<input type="file" value="上传文件">--%>
 
     <input type="button" onclick="clickShowImage()" value="显示图片">
-    <%--<img id="image" src="/public/testBase22one.jpg">--%>
+    <img id="image" src="/public/testBase22one.jpg">
 </div>
 <el-dialog  :visible.sync="false">
     aaaaa
