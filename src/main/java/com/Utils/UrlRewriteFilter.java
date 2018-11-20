@@ -8,6 +8,7 @@ package com.Utils;
  *
  */
 
+import com.springapp.mvc.service.BaseService;
 import com.springapp.mvc.service.UserService;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 import org.springframework.web.context.support.XmlWebApplicationContext;
@@ -21,7 +22,7 @@ public class UrlRewriteFilter implements Filter {
 
 
 
-    private UserService userService;
+    private BaseService baseService;
 
     private FilterConfig config;
     @Override
@@ -29,8 +30,8 @@ public class UrlRewriteFilter implements Filter {
         config = filterConfig;
         ServletContext sc=filterConfig.getServletContext();
         XmlWebApplicationContext cxt=(XmlWebApplicationContext)WebApplicationContextUtils.getWebApplicationContext(sc);
-        if(cxt != null && cxt.getBean(UserService.class) != null && userService == null)
-            userService = (UserService) cxt.getBean(UserService.class);
+        if(cxt != null && cxt.getBean(BaseService.class) != null && baseService == null)
+            baseService = (BaseService) cxt.getBean(BaseService.class);
     }
 
 
