@@ -40,6 +40,8 @@
 		<welcome-file></welcome-file>
 	</welcome-file-list>
 
+
+	<!--过滤器配置 第一个配置过滤器 第二个配置过滤的条件路径-->
 	<filter>
 		<filter-name>urlRewriteFilter</filter-name>
 		<filter-class>com.projectUtils.UrlRewriteFilter</filter-class>
