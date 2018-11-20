@@ -40,9 +40,9 @@
         <!--&lt;!&ndash;<mvc:exclude-mapping path="/" />&ndash;&gt;-->
         <!--&lt;!&ndash;<mvc:exclude-mapping path="/test" />&ndash;&gt;-->
         <!--&lt;!&ndash; 定义在mvc:interceptor下面的表示是对特定的请求才进行拦截的 &ndash;&gt;-->
-        <!--<bean class="com.Utils.ParseURLInterceptor"/>-->
+        <!--<bean class="com.projectUtils.ParseURLInterceptor"/>-->
         <!--</mvc:interceptor>-->
-        <bean class="com.Utils.ParseURLInterceptor"/>
+        <bean class="com.projectUtils.ParseURLInterceptor"/>
     </mvc:interceptors>
 
     <!--json格式数据转换的配置  -->

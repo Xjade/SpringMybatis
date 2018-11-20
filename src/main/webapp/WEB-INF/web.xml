@@ -42,10 +42,20 @@
 
 	<filter>
 		<filter-name>urlRewriteFilter</filter-name>
-		<filter-class>com.Utils.UrlRewriteFilter</filter-class>
+		<filter-class>com.projectUtils.UrlRewriteFilter</filter-class>
 	</filter>
 	<filter-mapping>
 		<filter-name>urlRewriteFilter</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
+
+
+
+    <!--配置listener 要注入service需要先配置初始化spring容器的Listener，然后在配置自己的Listener-->
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+    <listener>
+        <listener-class>com.projectUtils.MyServletContextListener</listener-class>
+    </listener>
 </web-app>

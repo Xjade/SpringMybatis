@@ -1,4 +1,4 @@
-package com.Utils;
+package com.projectUtils;
 
 /*
  *Created By Intellij IDEA
