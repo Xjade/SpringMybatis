@@ -10,11 +10,10 @@ package com.projectUtils;
 
 import com.springapp.mvc.service.BaseService;
 import com.springapp.mvc.service.impl.BaseServiceImpl;
+import org.springframework.web.context.ContextLoader;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
-import org.springframework.web.context.support.XmlWebApplicationContext;
 
-import javax.servlet.FilterConfig;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
@@ -26,6 +25,9 @@ public class MyServletContextListener implements ServletContextListener {
 
     @Override
     public void contextInitialized(ServletContextEvent servletContextEvent) {
+
+//        普通java类获取需要使用的bean通过context获取
+//        WebApplicationContext context = ContextLoader.getCurrentWebApplicationContext();
 
         ServletContext sc=servletContextEvent.getServletContext();
         WebApplicationContext cxt=WebApplicationContextUtils.getWebApplicationContext(sc);
