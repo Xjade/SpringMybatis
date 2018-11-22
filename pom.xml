@@ -180,6 +180,21 @@
             <artifactId>commons-lang</artifactId>
             <version>${commons.lang.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>4.5.5</version>
+        </dependency>
+        <dependency>
+            <groupId>com.sms</groupId>
+            <artifactId>sms</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.39</version>
+        </dependency>
 
     </dependencies>
 
