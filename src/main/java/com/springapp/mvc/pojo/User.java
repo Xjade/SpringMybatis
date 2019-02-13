@@ -44,4 +44,9 @@ public final class User {
                 ", id='" + id + '\'' +
                 '}';
     }
+
+    public String printThis(){
+        System.out.println(this);
+        return this.name;
+    }
 }

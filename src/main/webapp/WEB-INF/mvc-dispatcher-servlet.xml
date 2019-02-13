@@ -28,9 +28,19 @@
     <!--配置定时任务-->
     <task:annotation-driven scheduler="qbScheduler" mode="proxy"/>
     <task:scheduler id="qbScheduler" />
-    <!--配置扫描的包 我把相应的测试类放到com.test包下，这个一定要写-->
+    <!--配置扫描的包 我把相应的测试类放到com.task包下，这个一定要写-->
     <context:component-scan base-package="com.task"/>
     <!--因为会启动两次 所以单独把定时器拿出去然后这边的关掉开启另一边-->
     <!--开启任务-->
     <!--<task:annotation-driven/>-->
+
+
+
+    <!--下面是配置文件 配置定时任务。可以在配置文件里面修改时间等。-->
+    <!--&lt;!&ndash; 配置文件方式配置spring task &ndash;&gt;-->
+    <!--<context:component-scan base-package="com.task"/>-->
+    <!--<task:scheduled-tasks>-->
+        <!--<task:scheduled ref="timeTask" method="test"-->
+                        <!--cron="*/5 * * * * ?" />-->
+    <!--</task:scheduled-tasks>-->
 </beans>

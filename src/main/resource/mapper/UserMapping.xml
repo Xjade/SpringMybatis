@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper  namespace="com.ssi.mvc.domains.user.entity">
-    <resultMap id="UserMapper" type="com.ssi.mvc.domains.user.entity.User">
+    <resultMap id="UserMapper" type="com.springapp.mvc.pojo.User">
         <id column="id" property="id" jdbcType="VARCHAR"/>
         <result column="age" property="age" jdbcType="NUMERIC"/>
         <result column="username" property="name" jdbcType="VARCHAR"/>
@@ -20,12 +20,12 @@
     </select>
 
     <!-- 新增用户-->
-    <insert id="insertUser" parameterType="com.ssi.mvc.domains.user.entity.User">
+    <insert id="insertUser" parameterType="com.springapp.mvc.pojo.User">
         INSERT INTO USER VALUES (#{id},#{name},#{age});
     </insert>
 
     <!--根据ID修改用户信息-->
-    <update id="updateUser" parameterType="com.ssi.mvc.domains.user.entity.User">
+    <update id="updateUser" parameterType="com.springapp.mvc.pojo.User">
         UPDATE USER SET username=#{name},age=#{age} where id=#{id};
     </update>
 

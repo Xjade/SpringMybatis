@@ -16,13 +16,14 @@ import com.springapp.mvc.pojo.User;
 import com.springapp.mvc.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Transactional
 @Service
-public final class UserServiceImpl implements UserService {
+public  class UserServiceImpl implements UserService {
 
     @Autowired
     private UserDaoMybatis userDaoMybatis;
@@ -51,7 +52,14 @@ public final class UserServiceImpl implements UserService {
         userDaoMybatis.deleteUser(id);
     }
 
-//    跟新用户信息，id唯一切不可更新
+    @Override
+    @Transactional(readOnly = false, propagation = Propagation.REQUIRES_NEW)
+    public void insertTest(User user1,User user2) {
+        userDaoMybatis.insertUser(user1);
+        userDaoMybatis.insertUser(user2);
+    }
+
+    //    跟新用户信息，id唯一切不可更新
     @Override
     public void update(User user) {
         userDaoMybatis.updateUser(user);

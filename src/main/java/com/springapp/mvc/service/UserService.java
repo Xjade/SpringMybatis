@@ -43,4 +43,11 @@ public interface UserService {
      * @param id 根据用户id删除数据
      */
     void delete(String id);
+
+    /**
+     *
+     * @param user1 直接用User类型作为参数插入数据
+     * @param user2 直接用User类型作为参数插入数据
+     */
+    void insertTest(User user1,User user2);
 }

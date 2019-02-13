@@ -43,11 +43,13 @@ public class UrlRewriteFilter implements Filter {
 //        HttpServletRequest request = (HttpServletRequest) servletRequest;
 //        String requestURI = request.getRequestURI();
 //        if (true){
+//        地址不变的情况下改变request请求
 //            filterChain.doFilter(servletRequest,servletResponse);
 //            return;
 //        }
 //        if (false){
 //            String newURI = ""+requestURI;
+//        这边是访问新的url地址的拼接
 //            servletRequest.getRequestDispatcher(newURI).forward(servletRequest, servletResponse);
 //        }
     }
