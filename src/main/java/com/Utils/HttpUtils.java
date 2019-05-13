@@ -9,11 +9,18 @@ package com.Utils;
  */
 
 import com.alibaba.fastjson.JSONObject;
+import org.apache.http.HttpResponse;
+import org.apache.http.HttpVersion;
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.entity.StringEntity;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.protocol.HTTP;
+import org.apache.http.util.EntityUtils;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.PrintWriter;
+import java.io.*;
+import java.net.Socket;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -180,11 +187,11 @@ public class HttpUtils {
      *
      * @param url
      *            目的地址
-     * @param parameters
-     *            请求参数，Map类型。
+     * @param params
+     *            请求参数，String类型。
      * @return 远程响应结果
      */
-    public static String sendRegisterPost(String url, String params,Map<String, String> parameters) {
+    public static String sendStringPost(String url, String params) {
         String result = "";// 返回的结果
         BufferedReader in = null;// 读取响应输入流
         PrintWriter out = null;
@@ -238,8 +245,74 @@ public class HttpUtils {
 
 
 
+    public static String sendMessage(String url, int port, byte[] request) {
+        byte[] res = null;
+        Socket socket = null;
+        InputStream is = null;
+        OutputStream os = null;
+        try {
+            socket = new Socket(url, port);
+            os = socket.getOutputStream();
+            os.write(request);
+            os.flush();
+            is = socket.getInputStream();
+            ByteArrayOutputStream bos = new ByteArrayOutputStream();
+            byte[] buffer = new byte[1024];
+            int count = 0;
+            do {
+                count = is.read(buffer);
+                bos.write(buffer, 0, count);
+            } while (is.available() != 0);
+            res = bos.toByteArray();
+            os.close();
+            is.close();
+            socket.close();
+        } catch (Exception ex) {
+            try {
+                if (is != null) {
+                    is.close();
+                }
+                if (socket != null)
+                    socket.close();
+            } catch (Exception e) {
+            }
+        }
+        return new String(res);
+    }
 
 
+
+
+    public static String postHttpUtil(String uri, StringEntity entity){
+        String result="";
+        try {
+            HttpClient httpclient = new DefaultHttpClient();
+            HttpPost httppost = new HttpPost(uri);
+//            设置短连接
+//            httppost.setProtocolVersion(HttpVersion.HTTP_1_0);
+//            httppost.addHeader(HTTP.CONN_DIRECTIVE, HTTP.CONN_CLOSE);
+            httppost.setEntity(entity);
+            HttpResponse response;
+            response = httpclient.execute(httppost);
+            //检验状态码，如果成功接收数据
+            int code = response.getStatusLine().getStatusCode();
+            if (code == 200) {
+                String receive = EntityUtils.toString(response.getEntity());
+                String returnStr = receive.substring(receive.indexOf("<root>")+8,receive.indexOf("</root>"));
+                String returnCode = receive.substring(receive.indexOf("<Ret_Cd>")+ 8,receive.indexOf("</Ret_Cd>"));
+                String returnMessage = receive.substring(receive.indexOf("<Ret_Msg>")+9,receive.indexOf("</Ret_Msg>"));
+                result = returnCode+"_"+returnMessage;
+//                logger.info("->{}->{}->{}",returnStr,returnCode,returnMessage);
+            }
+        } catch (ClientProtocolException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
 
 
 
