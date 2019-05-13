@@ -9,8 +9,9 @@ package com.Utils;
  */
 
 import com.alibaba.fastjson.JSONObject;
+import org.apache.cxf.endpoint.Client;
+import org.apache.cxf.jaxws.endpoint.dynamic.JaxWsDynamicClientFactory;
 import org.apache.http.HttpResponse;
-import org.apache.http.HttpVersion;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpPost;
@@ -24,6 +25,7 @@ import java.net.Socket;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Properties;
 
 /**
  * 用于模拟HTTP请求中GET/POST方式
@@ -298,10 +300,7 @@ public class HttpUtils {
             int code = response.getStatusLine().getStatusCode();
             if (code == 200) {
                 String receive = EntityUtils.toString(response.getEntity());
-                String returnStr = receive.substring(receive.indexOf("<root>")+8,receive.indexOf("</root>"));
-                String returnCode = receive.substring(receive.indexOf("<Ret_Cd>")+ 8,receive.indexOf("</Ret_Cd>"));
-                String returnMessage = receive.substring(receive.indexOf("<Ret_Msg>")+9,receive.indexOf("</Ret_Msg>"));
-                result = returnCode+"_"+returnMessage;
+                result = receive;
 //                logger.info("->{}->{}->{}",returnStr,returnCode,returnMessage);
             }
         } catch (ClientProtocolException e) {
@@ -312,6 +311,28 @@ public class HttpUtils {
             e.printStackTrace();
         }
         return result;
+    }
+
+
+
+
+    public static void getXml(String url,String method,Object[] data){
+        try
+        {
+            Properties props = System.getProperties();
+            props.setProperty("org.apache.cxf.stax.allowInsecureParser", "1");
+            props.setProperty("UseSunHttpHandler", "true");
+            JaxWsDynamicClientFactory clientFactory = JaxWsDynamicClientFactory.newInstance();
+            Client client = clientFactory.createClient(url);
+            Object[] obj = client.invoke(method, data);
+//            result = new ApiCall(true, obj[0].toString());
+//            logger.info("result:{}",obj[0].toString());
+        }
+        catch (Exception e)
+        {
+//            logger.error(e.toString());
+//            throw new BusinessException(e.getMessage());
+        }
     }
 
 
