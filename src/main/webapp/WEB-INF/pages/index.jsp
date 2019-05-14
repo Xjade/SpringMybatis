@@ -163,7 +163,7 @@
 
 
     //              这个是循环全部获取checkbox
-    //            var tbodyObj = document.getElementById('UserTable');
+    //            var  tbodyObj  =  document.getElementById('UserTable');
     //            $(":checkbox").each(function(key,value){
     //                if($(value).prop('checked')){
     //                    alert($(value).prop('checked'));
