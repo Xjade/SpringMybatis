@@ -247,40 +247,7 @@ public class HttpUtils {
 
 
 
-    public static String sendMessage(String url, int port, byte[] request) {
-        byte[] res = null;
-        Socket socket = null;
-        InputStream is = null;
-        OutputStream os = null;
-        try {
-            socket = new Socket(url, port);
-            os = socket.getOutputStream();
-            os.write(request);
-            os.flush();
-            is = socket.getInputStream();
-            ByteArrayOutputStream bos = new ByteArrayOutputStream();
-            byte[] buffer = new byte[1024];
-            int count = 0;
-            do {
-                count = is.read(buffer);
-                bos.write(buffer, 0, count);
-            } while (is.available() != 0);
-            res = bos.toByteArray();
-            os.close();
-            is.close();
-            socket.close();
-        } catch (Exception ex) {
-            try {
-                if (is != null) {
-                    is.close();
-                }
-                if (socket != null)
-                    socket.close();
-            } catch (Exception e) {
-            }
-        }
-        return new String(res);
-    }
+
 
 
 
